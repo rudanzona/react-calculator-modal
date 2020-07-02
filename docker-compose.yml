@@ -9,8 +9,20 @@ services:
     volumes:
       - '.:/app'
       - '/app/node_modules'
+      - '/app/.storybook'
     ports:
       - 3000:3000
     environment:
       - CI=true
       - CHOKIDAR_USEPOLLING=true
+
+  storybook:
+    container_name: storybook
+    build:
+      context: .
+      dockerfile: Dockerfile.storybook
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - 9009:9009
