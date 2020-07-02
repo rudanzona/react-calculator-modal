@@ -1,5 +1,24 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Docker-based Development
+In this project, you can run the app by docker or docker-compose
+
+### `docker-compose up`
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.<br />
+Use `Ctrl+C` to stop the container.
+
+### `docker-compose -f docker-compose.prod.yml up`
+Runs the app in the production mode with built static files under nginx.<br />
+Open [http://localhost](http://localhost) to view it in the browser.
+
+Use `Ctrl+C` to stop the container.
+
+### `docker container ls`
+Shows the list of docker containers.
+
 ## Available Scripts
 
 In the project directory, you can run:
