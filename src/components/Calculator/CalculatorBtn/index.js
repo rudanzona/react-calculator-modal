@@ -8,13 +8,16 @@ function CalculatorBtn(props) {
     children,
     type,
     op,
+    currentOp,
     style,
     onClick,
   } = props
+  const content = children || op
   const btnClassName = ClassNames(
     'cal-btn',
     {
-      [`cal-btn__${type}`]: !!type
+      [`cal-btn__${type}`]: !!type,
+      'cal-btn__op-selected': currentOp === op,
     },
   )
 
@@ -22,15 +25,15 @@ function CalculatorBtn(props) {
     onClick(e,
       {
         type,
-        op: op || children,
+        op,
       }
     )
-  }, [type, op, children, onClick])
+  }, [type, op, onClick])
 
-  return children && (
+  return (content !== null) && (
     <button className={btnClassName} onClick={onClickHandler} style={style}>
       <div className="cal-btn__cnt">
-        {children}
+        {content}
       </div>
     </button>
   );
@@ -43,6 +46,7 @@ CalculatorBtn.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  currentOp: PropTypes.string,
   style: PropTypes.object,
   onClick: PropTypes.func,
 }

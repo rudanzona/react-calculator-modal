@@ -40,6 +40,17 @@ export const OperatorClear = () => (
   </Container>
 )
 
+export const SelectedOperator = () => (
+  <Container>
+    <CalculatorBtn
+      onClick={action('clicked')}
+      type="op"
+      op="multiply"
+      currentOp="multiply"
+    >+</CalculatorBtn>
+  </Container>
+)
+
 
 export const Number = () => (
   <Container>
@@ -47,7 +58,7 @@ export const Number = () => (
       onClick={action('clicked')}
       type="num"
       op={1}
-    >1</CalculatorBtn>
+    />
   </Container>
 )
 
@@ -56,6 +67,7 @@ export const NumberZero = () => (
     <CalculatorBtn
       onClick={action('clicked')}
       type="num"
-    >0</CalculatorBtn>
+      op={0}
+    />
   </Container>
 )

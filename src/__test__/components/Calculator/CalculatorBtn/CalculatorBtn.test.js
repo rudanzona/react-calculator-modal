@@ -4,13 +4,11 @@ import CalculatorBtn from '../../../../components/Calculator/CalculatorBtn'
 
 describe('Component - CalculatorBtn', () => {
   test('Should render noting when no children', () => {
-    const { queryByRole } = render(<CalculatorBtn />)
-
-    expect(queryByRole('button')).not.toBeInTheDocument()
+    expect(render(<CalculatorBtn />)).toBeNull
   })
 
   test('Should render 0 when children is zero', () => {
-    const { getByRole, getByText } = render(<CalculatorBtn type="num">0</CalculatorBtn>)
+    const { getByRole, getByText } = render(<CalculatorBtn type="num" op={0} />)
     const btn = getByRole('button')
 
     expect(btn).toBeInTheDocument()
@@ -19,7 +17,7 @@ describe('Component - CalculatorBtn', () => {
 
   test('Should render number when children is number', () => {
     const mockCallback = jest.fn();
-    const { getByRole, getByText } = render(<CalculatorBtn type="num" onClick={mockCallback}>1</CalculatorBtn>)
+    const { getByRole, getByText } = render(<CalculatorBtn type="num" onClick={mockCallback} op={1} />)
     const btn = getByRole('button')
 
     expect(btn).toBeInTheDocument()
@@ -30,7 +28,7 @@ describe('Component - CalculatorBtn', () => {
 
     const { type, op } = mockCallback.mock.calls[0][1]
     expect(type).toBe('num')
-    expect(op).toBe('1')
+    expect(op).toBe(1)
   })
 
   test('Should render an operator when children is text and type is op', () => {
@@ -47,5 +45,11 @@ describe('Component - CalculatorBtn', () => {
     const { type, op } = mockCallback.mock.calls[0][1]
     expect(type).toBe('op')
     expect(op).toBe('clear')
+  })
+
+  test('Should render a selected operator when currentOp matches op', () => {
+    const { container } = render(<CalculatorBtn type="op" op="clear" currentOp="clear">AC</CalculatorBtn>)
+
+    expect(container.querySelector('.cal-btn__op-selected')).toBeInTheDocument()
   })
 })

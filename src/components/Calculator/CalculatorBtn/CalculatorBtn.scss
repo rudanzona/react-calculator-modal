@@ -23,7 +23,7 @@
   &__op {
     background-color: #AFAFAF;
 
-    &:hover {
+    &:hover, &-selected {
       background-color: #bebebe;
     }
 
