@@ -46,6 +46,7 @@ export const Number = () => (
     <CalculatorBtn
       onClick={action('clicked')}
       type="num"
+      op={1}
     >1</CalculatorBtn>
   </Container>
 )

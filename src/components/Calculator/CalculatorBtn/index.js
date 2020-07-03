@@ -22,10 +22,10 @@ function CalculatorBtn(props) {
     onClick(e,
       {
         type,
-        op,
+        op: op || children,
       }
     )
-  }, [type, op, onClick])
+  }, [type, op, children, onClick])
 
   return children && (
     <button className={btnClassName} onClick={onClickHandler} style={style}>
@@ -39,7 +39,10 @@ function CalculatorBtn(props) {
 CalculatorBtn.propTypes = {
   children: PropTypes.elementType,
   type: PropTypes.oneOf(['op', 'num']),
-  op: PropTypes.string,
+  op: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   style: PropTypes.object,
   onClick: PropTypes.func,
 }
