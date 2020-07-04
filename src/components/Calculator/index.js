@@ -80,9 +80,11 @@ function Calculator(props) {
             setResult('')
             setPrevResult('')
             break
-          default:
+          default:            
+            if (!result) setResult('0')
+
             setOp(btnOp)
-            setPrevResult(result)
+            setPrevResult(result || '0')
         }
         break
     }
