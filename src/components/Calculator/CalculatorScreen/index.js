@@ -1,6 +1,5 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import ClassNames from 'classnames'
 import './CalculatorScreen.scss'
 
 function CalculatorScreen(props) {

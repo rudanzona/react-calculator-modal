@@ -5,12 +5,13 @@
   width: 100%;
   color: white;
   overflow-x: auto;
+  box-sizing: border-box;
 
   &:after {
     content: '';
     display: block;
     height: 0;
-    padding-bottom: 25%;
+    padding-bottom: 30%;
   }
 
   &__result {

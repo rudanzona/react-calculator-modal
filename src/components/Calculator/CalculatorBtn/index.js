@@ -53,6 +53,7 @@ CalculatorBtn.propTypes = {
 
 CalculatorBtn.defaultProps = {
   children: null,
+  onClick: () => {},
 }
 
 export default CalculatorBtn
