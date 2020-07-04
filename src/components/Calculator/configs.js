@@ -12,7 +12,7 @@ export default {
     },
     {
       type: 'op',
-      op: 'percetage',
+      op: 'percentage',
       children: '%',
     },
     {
@@ -76,7 +76,7 @@ export default {
       op: 0,
     },
     {
-      type: 'op',
+      type: 'num',
       op: 'dot',
       children: '.',
     },

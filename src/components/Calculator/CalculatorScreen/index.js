@@ -15,7 +15,10 @@ function CalculatorScreen(props) {
 }
 
 CalculatorScreen.propTypes = {
-  result: PropTypes.number,
+  result: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ])
 }
 
 CalculatorScreen.defaultProps = {
