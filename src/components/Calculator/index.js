@@ -97,7 +97,7 @@ function Calculator(props) {
       <ul className="cal-btns">
         {btnConfigs.map((btnConfig) => (
           <li className={`cal-btns__item cal-btn__${btnConfig.type}-${btnConfig.op}`} key={`cal-btns__item-${btnConfig.type}-${btnConfig.op}`}>
-            <CalculatorBtn {...btnConfig} onClick={onClickHandler}/>
+            <CalculatorBtn {...btnConfig} currentOp={op} onClick={onClickHandler}/>
           </li>
         ))}
       </ul>
