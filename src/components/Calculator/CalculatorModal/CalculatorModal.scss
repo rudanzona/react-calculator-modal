@@ -1,0 +1,27 @@
+$tabletMinWidth: 768px;
+
+.CalculatorOverlay {
+  align-items: flex-end;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  @media only screen and (min-width: $tabletMinWidth) {
+    & {
+      align-items: center;
+    }
+  }
+}
+
+.CalculatorContent {
+  @media only screen and (min-width: $tabletMinWidth) {
+    & {
+      margin: auto;
+    }
+  }
+}
