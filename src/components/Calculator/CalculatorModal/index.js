@@ -1,4 +1,4 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 import ReactModal from 'react-modal'
 import Draggable from 'react-draggable'
 
@@ -37,6 +37,15 @@ const CalculatorModal = (props) => {
       </div>
     </ReactModal>
   )
+}
+
+CalculatorModal.propTypes = {
+  modalIsOpen: PropTypes.bool,
+}
+
+CalculatorModal.defaultProps = {
+  modalIsOpen: false,
+  closeModal: () => {},
 }
 
 export default CalculatorModal
