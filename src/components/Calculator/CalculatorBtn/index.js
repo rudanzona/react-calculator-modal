@@ -22,6 +22,7 @@ function CalculatorBtn(props) {
   )
 
   const onClickHandler = useCallback((e) => {
+    e.preventDefault()
     onClick(e,
       {
         type,
@@ -31,7 +32,7 @@ function CalculatorBtn(props) {
   }, [type, op, onClick])
 
   return (content !== null) && (
-    <button className={btnClassName} onClick={onClickHandler} style={style}>
+    <button className={btnClassName} onMouseUp={onClickHandler} onTouchEnd={onClickHandler} style={style}>
       <div className="cal-btn__cnt">
         {content}
       </div>
