@@ -1,27 +1,46 @@
 $tabletMinWidth: 768px;
 
-.CalculatorOverlay {
-  align-items: flex-end;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
+.calculator-overlay {
   overflow: auto;
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+
+  .calculator-content {
+    position: absolute;
+    bottom: 0;
+  }
 
   @media only screen and (min-width: $tabletMinWidth) {
     & {
-      align-items: center;
+      // align-items: center;
+
+      .calculator-content {
+        position: relative;
+        bottom: auto;
+        height: 100%;
+      }
     }
   }
 }
 
-.CalculatorContent {
+.calculator-draggable-container {
+
   @media only screen and (min-width: $tabletMinWidth) {
     & {
-      margin: auto;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: auto;
+
+      .react-draggable {
+        max-height: 100%;
+      }
     }
   }
 }
