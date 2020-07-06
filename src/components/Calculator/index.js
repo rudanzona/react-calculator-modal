@@ -8,11 +8,11 @@ import CalculatorScreen from './CalculatorScreen'
 import './Calculator.scss'
 
 const operations = {
-  'add': (prev, next) => Number.parseFloat(prev) + Number.parseFloat(next),
-  'subtract': (prev, next) => Number.parseFloat(prev) - Number.parseFloat(next),
-  'multiply': (prev, next) => Number.parseFloat(prev) * Number.parseFloat(next),
-  'divide': (prev, next) => Number.parseFloat(prev) / Number.parseFloat(next),
-  'percentage': (curr) => Number.parseFloat(curr) / 100,
+  add: (prev, next) => Number.parseFloat(prev) + Number.parseFloat(next),
+  subtract: (prev, next) => Number.parseFloat(prev) - Number.parseFloat(next),
+  multiply: (prev, next) => Number.parseFloat(prev) * Number.parseFloat(next),
+  divide: (prev, next) => Number.parseFloat(prev) / Number.parseFloat(next),
+  percentage: (curr) => Number.parseFloat(curr) / 100,
 }
 
 function Calculator(props) {
@@ -38,12 +38,18 @@ function Calculator(props) {
           prev = ''
         }
 
-        if (btnOp === 'dot') {
-          if (result.indexOf('.') === -1) next = '.'
-          if (!result) { 
-            prev = '0'
-            next = '.'
-          }
+        switch (btnOp) {
+          case 'dot':
+            if (result.indexOf('.') === -1) next = '.'
+            if (!result) { 
+              prev = '0'
+              next = '.'
+            }
+            break
+          case 'sign':
+            prev = ''
+            next = result.indexOf('-') === 0 ? result.replace('-', '') : `-${result}`
+            break
         }
 
         if (result === '0') {

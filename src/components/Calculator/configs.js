@@ -6,7 +6,7 @@ export default {
       children: 'AC',
     },
     {
-      type: 'op',
+      type: 'num',
       op: 'sign',
       children: '+/-',
     },
