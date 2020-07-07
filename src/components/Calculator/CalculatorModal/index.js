@@ -4,7 +4,6 @@ import ReactModal from 'react-modal'
 import Draggable from 'react-draggable'
 
 import { WindowSizeContext } from '../../../hooks/useWindowSize'
-import Calculator from '../index'
 import './CalculatorModal.scss'
 
 const CalculatorModal = (props) => {
@@ -14,6 +13,7 @@ const CalculatorModal = (props) => {
   const {
     modalIsOpen,
     closeModal,
+    children,
   } = props
 
   const handleModalClose = useCallback((e) => {
@@ -40,7 +40,7 @@ const CalculatorModal = (props) => {
           position={dragContainerPosition}
         >
           <div>
-            <Calculator />
+            {children}
           </div>
         </Draggable>
       </div>

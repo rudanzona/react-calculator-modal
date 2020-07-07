@@ -3,11 +3,12 @@ import ReactModal from 'react-modal'
 
 import useWindowSize, { WindowSizeContext } from './hooks/useWindowSize'
 import useModal from './hooks/useModal'
-import CalculatorModal from './components/Calculator/CalculatorModal'
+import CalculatorHookModal from './components/Calculator/CalculatorModal/CalculatorHookModal'
 import logo from './logo.svg'
 import './App.scss'
 
 ReactModal.setAppElement('#root')
+
 function App() {
   const { size } = useWindowSize()
   const {
@@ -23,7 +24,10 @@ function App() {
           <img src={logo} className="App-logo" alt="logo" />
           <button onClick={openModal}>Trigger Modal</button>
         </header>
-        <CalculatorModal modalIsOpen={modalIsOpen} closeModal={closeModal} />
+        <CalculatorHookModal
+          modalIsOpen={modalIsOpen}
+          closeModal={closeModal}
+        />
       </div>
     </WindowSizeContext.Provider>
   )
