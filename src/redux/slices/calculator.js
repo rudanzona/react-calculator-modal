@@ -111,6 +111,27 @@ const numHandlers = {
   },
 }
 
+export const calculatorHandlers = {
+  num: (state, action) => {
+    const {
+      type,
+      op,
+    } = action.payload
+    const handler = numHandlers[op] ? numHandlers[op] : numHandlers.default
+
+    handler(state, action.payload)
+    state.prevType = type
+  },
+  op: (state, action) => {
+    const {
+      op,
+    } = action.payload
+    const handler = opHandlers[op] ? opHandlers[op] : opHandlers.default
+
+    handler(state, action.payload)
+  },
+}
+
 export const calculatorSlice = createSlice({
   name: 'calcuator',
   initialState: {
@@ -120,27 +141,7 @@ export const calculatorSlice = createSlice({
     prevType: null,
   },
   reducers: {
-    num: (state, action) => {
-      const {
-        type,
-        op,
-      } = action.payload
-      const handler = numHandlers[op] ? numHandlers[op] : numHandlers.default
-
-      handler(state, action.payload)
-      state.prevType = type
-    },
-    op: (state, action) => {
-      const {
-        result,
-      } = state
-      const {
-        op,
-      } = action.payload
-      const handler = opHandlers[op] ? opHandlers[op] : opHandlers.default
-
-      handler(state, action.payload)
-    },
+    ...calculatorHandlers,
   },
 })
 
