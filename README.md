@@ -1,11 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It also uses [Storybook](https://storybook.js.org/) to show use cases of components.
+
+## Demo
+  - [React App](https://rudanzona.github.io/react-calculator-modal/)
+  - [Storybook](https://rudanzona.github.io/react-calculator-modal/storybook/)
 
 ## Docker-based Development
 In this project, you can run the app by docker or docker-compose
 
 ### `docker-compose up`
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mode and runs [Storybook](https://storybook.js.org/) for components.<br />
+Open [http://localhost:3000](http://localhost:3000) to view the app in the browser.
+Open [http://localhost:9009](http://localhost:9009) to view the storybook in the browser.
 
 The page will reload if you make edits.<br />
 Use `Ctrl+C` to stop the container.
@@ -18,6 +24,12 @@ Use `Ctrl+C` to stop the container.
 
 ### `docker container ls`
 Shows the list of docker containers.
+
+### `docker exec -it ${CONTAINER_ID} bash`
+Execute an interactive bash shell on the container.
+
+### `docker container prune`
+Remove all stopped containers.
 
 ## Available Scripts
 
@@ -45,6 +57,15 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn deploy`
+Deploy React app and storybook to Github pages.
+
+### `yarn storybook`
+Run storybook app to show use cases of the components.
+
+### `yarn build-storybook`
+Build static files of storybook app.
 
 ### `yarn eject`
 
