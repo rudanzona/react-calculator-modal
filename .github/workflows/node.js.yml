@@ -9,6 +9,10 @@ on:
 
 jobs:
   build:
+    env:
+      USER_NAME   : githubAction
+      USER_EMAIL  : githubAction@fake.com
+      PUBLISH_DIR : ./build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -18,9 +22,14 @@ jobs:
         node-version: '14.5.0'
     - name: Install dependencies
       run: yarn --frozen-lockfile
-    - name: Depoly storybook to ghpages
-      run: yarn run deploy-storybook --ci
-      env:
-        GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
-
-      
+    # - name: Depoly storybook to ghpages
+    #   run: yarn run deploy-storybook --ci
+    #   env:
+    #     GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+    - name: Build react app & storybook
+      run: |
+        yarn run build
+        yarn run build-storybook -o .out
+        mv .out build/storybook
+    - name: Commit gh-pages
+      run: yarn run deploy
